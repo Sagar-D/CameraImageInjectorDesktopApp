@@ -6,5 +6,5 @@ ipcRenderer.on("set_default_image", (event) => {
 })
 
 ipcRenderer.on("set_image_qr", (event,data) => {
-    JsBarcode("#image", data);
+    JsBarcode("#image", data, {format: "UPC"});
 })
