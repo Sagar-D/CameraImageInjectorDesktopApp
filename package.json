@@ -1,0 +1,19 @@
+{
+  "name": "scannerautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sagar-D",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsbarcode": "^3.11.4"
+  }
+}
