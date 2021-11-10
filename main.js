@@ -13,6 +13,7 @@ function createWindow () {
         },
         show: false
     })
+    //win.webContents.openDevTools();
     win.maximize();
     win.loadFile('index.html');
     win.show();
@@ -24,23 +25,26 @@ function createWindow () {
 
 const expressApp = express();
 const port = "3000";
-let content = "Helo World!!!";
+let content = "Image Injected!!";
 
 expressApp.get("/", (req, res) => {
     res.status(200).send(content);
+    win.show()
   });
 
   expressApp.get("/default", (req, res) => {
     res.status(200).send(content);
     win.webContents.send('set_default_image');
+    win.show()
   });
 
   expressApp.get("/qr/:data", (req, res) => {
     res.status(200).send(content);
     win.webContents.send('set_image_qr', req.params.data);
-    setTimeout(() => {
-        win.webContents.send('set_default_image');
-    },40000)
+    win.show()
+    // setTimeout(() => {
+    //     win.webContents.send('set_default_image');
+    // },40000)
   });
 
 expressApp.listen(port, () => {
